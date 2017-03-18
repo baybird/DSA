@@ -58,10 +58,13 @@ class ShortestPath():
 ###################################
 # Test case
 ###################################
+# number of vertex
 num = 5
 
+# Vertex - names of places
 N = ("A", "B", "C", "D", "E");
 
+# Matrix
 M = (
   ( 0, 3, 0, 1, 0 ),
   ( 3, 0, 2, 5, 2 ),
@@ -70,9 +73,9 @@ M = (
   ( 0, 2, 5, 1, 0 ),
 );
 
-p = ShortestPath(num, N, M);
-p.calPaths(0) # origin 0:A
-p.showResult()
+Adj = ShortestPath(num, N, M);
+Adj.calPaths(0)   # origin 0:A
+Adj.showResult()
 
 # Origin:  0
 # Vertex  Shortest-Dist  Prev-Vertex
