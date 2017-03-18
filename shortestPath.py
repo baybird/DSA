@@ -73,3 +73,11 @@ M = (
 p = ShortestPath(num, N, M);
 p.calPaths(0) # origin 0:A
 p.showResult()
+
+# Origin:  0
+# Vertex  Shortest-Dist  Prev-Vertex
+# 0        0             None
+# 1        3             0
+# 2        5             1
+# 3        1             0
+# 4        2             3
