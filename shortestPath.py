@@ -1,8 +1,9 @@
-#  File Name     : shortestPath.py
-#  Author        : Robert.Tang
-#  Created       : 3/18/2017
-#  Last Modified :
-#  Description   : Finding shortest path in O(N^2)
+# File Name     : shortestPath.py
+# Author        : Robert.Tang
+# Created       : 3/18/2017
+# Last Modified :
+# Description   : Finding shortest path in O(N^2)
+# Python Version: v3
 
 import sys
 
