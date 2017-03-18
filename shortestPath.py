@@ -61,7 +61,7 @@ class ShortestPath():
 # number of vertex
 num = 5
 
-# Vertex - names of places
+# Vertex - name of place
 N = ("A", "B", "C", "D", "E");
 
 # Matrix
