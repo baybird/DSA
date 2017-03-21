@@ -3,7 +3,7 @@
 # Created       : 3/18/2017
 # Last Modified :
 # Description   : Finding shortest path in O(N^2)
-# Python Version: v3
+# Python Version: 2.7
 
 import sys
 
@@ -38,7 +38,7 @@ class Graph():
             min_index = v
       # find min index END ##############################
 
-      # set as __visted
+      # set as visted
       self.__visted[min_index] = 1
 
       for x in range(self.num):
@@ -50,10 +50,10 @@ class Graph():
           self.__prevVertex[x] = min_index
 
   def showResult(self):
-    print("Origin: ", self.origin)
+    print "Origin: ", self.origin
     print("Vertex\tShortest-Dist\t Prev-Vertex");
     for x in range(self.num):
-      print(x, "\t\t\t", self.__distance[x],  "\t\t\t\t\t\t", self.__prevVertex[x]);
+      print "%d \t\t\t %s \t\t\t\t\t\t %s" % (x, self.__distance[x], self.__prevVertex[x])
 
 
 ###################################
@@ -62,7 +62,7 @@ class Graph():
 # number of vertex
 num = 5
 
-# Vertex - __name of place
+# Vertex - name of place
 N = ("A", "B", "C", "D", "E");
 
 M = (
@@ -77,10 +77,12 @@ Adj = Graph(num, N, M);
 Adj.calPaths(0)   # origin 0:A
 Adj.showResult()
 
+# Output ############################################
+#
 # Origin:  0
 # Vertex  Shortest-Dist  Prev-Vertex
 # 0        0             None
-# 1        3             0
-# 2        5             1
+# 1        2             0
+# 2        3             1
 # 3        1             0
-# 4        2             3
+# 4        4             3
