@@ -1,4 +1,4 @@
-# File Name     : shortestPath.py
+# File __name     : shortestPath.py
 # Author        : Robert.Tang
 # Created       : 3/18/2017
 # Last Modified :
@@ -7,23 +7,23 @@
 
 import sys
 
-class ShortestPath():
+class Graph():
 
   def __init__(self, num, N, M):
     self.num = num;
 
     # lists
-    self.distance = [sys.maxsize] * self.num # maxsize represents infinity
-    self.visted   = [0]* self.num
-    self.prevVertex = [None]* self.num;
+    self.__distance = [sys.maxsize] * self.num # maxsize represents infinity
+    self.__visted   = [0]* self.num
+    self.__prevVertex = [None]* self.num;
 
     # tuples
-    self.matrix = M
-    self.name   = N
+    self.__matrix = M
+    self.__name   = N
 
   def calPaths(self, origin):
     self.origin = origin
-    self.distance[origin] = 0;
+    self.__distance[origin] = 0;
 
     for x in range(self.num):
       # find min index
@@ -31,29 +31,29 @@ class ShortestPath():
       min_index = 0
 
       for v in range(self.num):
-        # print(v, self.visted[v], self.distance[v])
+        # print(v, self.__visted[v], self.__distance[v])
 
-        if (self.visted[v] == 0 and self.distance[v] <= min):
-            min = self.distance[v]
+        if (self.__visted[v] == 0 and self.__distance[v] <= min):
+            min = self.__distance[v]
             min_index = v
       # find min index END ##############################
 
-      # set as visted
-      self.visted[min_index] = 1
+      # set as __visted
+      self.__visted[min_index] = 1
 
       for x in range(self.num):
-        if (self.visted[x]!=1
-          and self.matrix[min_index][x] > 0
-          and self.distance[min_index] != sys.maxsize
-          and (self.distance[min_index] + self.matrix[min_index][x]) < self.distance[x] ):
-          self.distance[x] = self.distance[min_index] + self.matrix[min_index][x]
-          self.prevVertex[x] = min_index
+        if (self.__visted[x]!=1
+          and self.__matrix[min_index][x] > 0
+          and self.__distance[min_index] != sys.maxsize
+          and (self.__distance[min_index] + self.__matrix[min_index][x]) < self.__distance[x] ):
+          self.__distance[x] = self.__distance[min_index] + self.__matrix[min_index][x]
+          self.__prevVertex[x] = min_index
 
   def showResult(self):
     print("Origin: ", self.origin)
     print("Vertex\tShortest-Dist\t Prev-Vertex");
     for x in range(self.num):
-      print(x, "\t\t\t", self.distance[x],  "\t\t\t\t\t\t", self.prevVertex[x]);
+      print(x, "\t\t\t", self.__distance[x],  "\t\t\t\t\t\t", self.__prevVertex[x]);
 
 
 ###################################
@@ -62,19 +62,18 @@ class ShortestPath():
 # number of vertex
 num = 5
 
-# Vertex - name of place
+# Vertex - __name of place
 N = ("A", "B", "C", "D", "E");
 
-# Matrix
 M = (
-  ( 0, 3, 0, 1, 0 ),
-  ( 3, 0, 2, 5, 2 ),
-  ( 0, 2, 0, 0, 5 ),
-  ( 1, 2, 0, 0, 1 ),
-  ( 0, 2, 5, 1, 0 ),
+  ( 0, 2, 0, 1, 0 ),
+  ( 2, 0, 1, 2, 2 ),
+  ( 0, 1, 0, 0, 2 ),
+  ( 1, 2, 0, 0, 3 ),
+  ( 0, 2, 2, 3, 0 ),
 );
 
-Adj = ShortestPath(num, N, M);
+Adj = Graph(num, N, M);
 Adj.calPaths(0)   # origin 0:A
 Adj.showResult()
 
