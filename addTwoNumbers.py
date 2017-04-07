@@ -19,19 +19,12 @@ class ListNode(object):
 
 class Solution(object):
     def addTwoNumbers(self, l1, l2):
-        """
-        :type l1: ListNode
-        :type l2: ListNode
-        :rtype: ListNode
-        """
-
         residue = []
         node = ListNode(0)
         root = node
         while l1 or l2:
           lnum = l1.val if l1 else 0
           rnum = l2.val if l2 else 0
-
           sum = lnum + rnum if len(residue) < 1 else lnum + rnum + residue.pop()
 
           if sum < 10:
@@ -40,10 +33,8 @@ class Solution(object):
             digit = sum%10
             residue.append(1)
 
-          # print l1.val, l2.val, '=', digit
           node.next = ListNode(digit)
           node = node.next
-
 
           if l1:
             l1 = l1.next
