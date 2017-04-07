@@ -17,10 +17,13 @@ class ListNode(object):
         self.next = None
 
 class Solution(object):
+    # Time complexity: N
+    # Hope can make it more concise
     def addTwoNumbers(self, l1, l2):
         residue = []
         node = ListNode(0)
         root = node
+
         while l1 or l2:
           lnum = l1.val if l1 else 0
           rnum = l2.val if l2 else 0
@@ -30,7 +33,7 @@ class Solution(object):
             digit = sum
           else:
             digit = sum%10
-            residue.append(1)
+            residue.append(1) # Because of the sum of two maximum digits is 18
 
           node.next = ListNode(digit)
           node = node.next
@@ -74,7 +77,6 @@ l1.next.next = ListNode(3);
 l2 = ListNode(5);
 l2.next = ListNode(6);
 
-s = Solution();
 r = s.addTwoNumbers(l1, l2)
 print r.val, r.next.val, r.next.next.val
 
@@ -87,6 +89,5 @@ l1.next = ListNode(4);
 l2 = ListNode(5);
 l2.next = ListNode(6);
 
-s = Solution();
 r = s.addTwoNumbers(l1, l2)
 print r.val, r.next.val, r.next.next.val
