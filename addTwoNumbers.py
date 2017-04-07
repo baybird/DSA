@@ -33,7 +33,7 @@ class Solution(object):
             digit = sum
           else:
             digit = sum%10
-            residue.append(1) # Because of the sum of two maximum digits is 18
+            residue.append(1) # Because of the sum of two maximum single digits is 18
 
           node.next = ListNode(digit)
           node = node.next
