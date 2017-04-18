@@ -65,6 +65,7 @@ num = 5
 # Vertex - name of place
 N = ("A", "B", "C", "D", "E");
 
+# Adj. Matrix
 M = (
   ( 0, 2, 0, 1, 0 ),
   ( 2, 0, 1, 2, 2 ),
