@@ -163,6 +163,27 @@ print "result:", node.val
 # output
 # None = infinity
 
-
+# node 1 created with 2 levels
+# node 2 created with 4 levels
+# node 3 created with 4 levels
+# node 4 created with 2 levels
+# node 5 created with 3 levels
+# node 6 created with 5 levels
+# node 7 created with 2 levels
+# node 8 created with 3 levels
+# node 9 created with 4 levels
+# L0: None                 6
+# L1: None     2  3        6        9
+# L2: None     2  3     5  6     8  9
+# L3: None  1  2  3  4  5  6  7  8  9
+# L4: None  1  2  3  4  5  6  7  8  9
+# ***search***
+# from  None
+# move to  6
+# down to  6
+# down to  6
+# down to  6
+# found
+# result: 7
 
 
