@@ -100,11 +100,11 @@ class skipList():
 		while nodePtr.down != None:
 			while nodePtr.next != None and K >= nodePtr.next.val:
 				nodePtr = nodePtr.next
+				print "move to ", nodePtr.val
+
 				if nodePtr.val == K:
 					print "found"
 					return nodePtr
-				print "move to ", nodePtr.val
-
 
 			nodePtr = nodePtr.down
 			print "down to ", nodePtr.val
