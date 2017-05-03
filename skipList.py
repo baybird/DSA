@@ -92,47 +92,76 @@ class skipList():
 		print "node", nodePtr.val, "created with", str(level) ,"levels"
 		# os.system("pause")
 
+	def search(self, K):
+		nodePtr = self.top
+		print "***search***"
+		print "from ", nodePtr.val
+
+		while nodePtr.down != None:
+			while nodePtr.next != None and K >= nodePtr.next.val:
+				nodePtr = nodePtr.next
+				if nodePtr.val == K:
+					print "found"
+					return nodePtr
+				print "move to ", nodePtr.val
+
+
+			nodePtr = nodePtr.down
+			print "down to ", nodePtr.val
+
+		return nodePtr
 
 	# @staticmethod
 	def __show(self, nodePtr):
+		recent = 0
+
 		while nodePtr != None:
-			print nodePtr.val,
+			# print "recent:", recent, ",",
+			if nodePtr.val != None and recent + 1 < nodePtr.val:
+				self.insertSpace(nodePtr.val, recent)
+
+			print nodePtr.val,"",
+
+			if nodePtr.val != None:
+				recent = nodePtr.val
+
 			nodePtr = nodePtr.next
 		print
 
-
 	def show(self):
 		level = 0
-		while self.top != None:
+		nodePtr = self.top
+		while nodePtr != None:
 			print "L" + str(level) + ":",
-			self.__show(self.top)
+			self.__show(nodePtr)
 
-			self.top = self.top.down
+			nodePtr = nodePtr.down
 			level += 1
 
+	def insertSpace(self, val, recent):
+		if recent == None :
+			step = val
+		else:
+			step = val - recent
+
+		for x in xrange(step-1):
+			print "  ",
+		# print "val:", val, ", blank:", step
 
 # skip list end
 
 # test
 list = skipList()
-for i in range(3):
+for i in xrange(1,10):
 	list.insertNode(i, i)
-
 list.show();
+
+# search 7
+node = list.search(7)
+print "result:", node.val
 
 # output
 # None = infinity
-# node 0 created with 3 levels
-# node 1 created with 8 levels
-# node 2 created with 4 levels
-# L0: None 	 1
-# L1: None 	 1
-# L2: None 	 1
-# L3: None 	 1
-# L4: None 	 1 2
-# L5: None 0 1 2
-# L6: None 0 1 2
-# L7: None 0 1 2
 
 
 
