@@ -109,7 +109,6 @@ class skipList():
 			nodePtr = nodePtr.down
 			print "down to ", nodePtr.val
 
-		return nodePtr
 
 	# @staticmethod
 	def __show(self, nodePtr):
@@ -158,7 +157,17 @@ list.show();
 
 # search 7
 node = list.search(7)
-print "result:", node.val
+if node:
+	print "result:", node.val
+else:
+	print "not found"
+
+# search not existed term
+node = list.search(11)
+if node:
+	print "result:", node.val
+else:
+	print "not found"
 
 # output
 # None = infinity
