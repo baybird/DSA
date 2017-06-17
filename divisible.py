@@ -1,10 +1,11 @@
-# Problem		: Divisibility
+# Problem       : Divisibility test
 # Description   : Determining whether one whole number is divisible by another or not.
 # For example   : 11 is not divisible by [2,5,7]
 # 			      9  is divisible by [2,5,7]
 # Author        : Robert Tang
 # Email         : bayareabird@gmail.com
 # Created       : 6/16/2017
+# Python Version: 2.7
 
 class Solution():
 
