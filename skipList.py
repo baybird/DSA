@@ -109,6 +109,12 @@ class skipList():
 			nodePtr = nodePtr.down
 			print "down to ", nodePtr.val
 
+	def removal(self, K):
+		nodePtr = self.search(K)
+		if nodePtr:
+			while nodePtr != None:
+				nodePtr.prev.next = nodePtr.next
+				nodePtr = nodePtr.down
 
 	# @staticmethod
 	def __show(self, nodePtr):
@@ -153,21 +159,27 @@ class skipList():
 list = skipList()
 for i in xrange(1,10):
 	list.insertNode(i, i)
-list.show();
+list.show()
 
-# search 7
-node = list.search(7)
-if node:
-	print "result:", node.val
-else:
-	print "not found"
 
-# search not existed term
-node = list.search(11)
-if node:
-	print "result:", node.val
-else:
-	print "not found"
+# # search 7
+# node = list.search(7)
+# if node:
+# 	print "result:", node.val
+# else:
+# 	print "not found"
+
+# # search not existed term
+# node = list.search(11)
+# if node:
+# 	print "result:", node.val
+# else:
+# 	print "not found"
+
+
+# Removal
+list.removal(7)
+list.show()
 
 # output
 # None = infinity
