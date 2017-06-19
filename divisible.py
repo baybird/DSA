@@ -9,27 +9,27 @@
 
 class Solution():
 
-	def isDivisible(self, factors, n):
-		for x in factors:
-			remainder = n % x;
+    def isDivisible(self, factors, n):
+        for x in factors:
+            remainder = n % x;
 
-			if remainder == 0:
-				return True;
-			elif self.DFS(factors, remainder, [x]) == True:
-				return True
+            if remainder == 0:
+                return True;
+            elif self.DFS(factors, remainder, [x]) == True:
+                return True
 
-		return False
+        return False
 
-	def DFS(self, factors, n, visited =[]):
-		for x in factors:
-			if x not in visited:
-				visited.append(x)
-				remainder = n % x
+    def DFS(self, factors, n, visited =[]):
+        for x in factors:
+            if x not in visited:
+                visited.append(x)
+                remainder = n % x
 
-				if remainder == 0:
-					return True
+                if remainder == 0:
+                    return True
 
-				self.DFS(factors, remainder, visited)
+                self.DFS(factors, remainder, visited)
 
 # test
 s = Solution();
@@ -39,6 +39,6 @@ n   	= 9
 ret 	= s.isDivisible(factors, n)
 
 if ret == True:
-	print n, 'is divisible by', factors
+    print n, 'is divisible by', factors
 else:
-	print n, 'is NOT divisible by', factors
+    print n, 'is NOT divisible by', factors
