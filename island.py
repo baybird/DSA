@@ -2,10 +2,10 @@ import sys
 
 class Solution():
 
-    def numIslands(self, grid):
+    def numOfIslands(self, grid):
         count = 0;
         self.__n = len(grid);
-        print "n:", self.__n
+        # print "n:", self.__n
         if self.__n == 0:
             return 0;
 
@@ -16,23 +16,23 @@ class Solution():
             for j in xrange(self.__m):
                 if (grid[i][j] == 1):
                     # print "search:", i, j
-                    self.DFSMarking(grid, i, j);
+                    self.DFS(grid, i, j);
                     # print "count:", count
                     count +=1;
 
         return count;
 
-    def DFSMarking(self, grid, i, j):
+    def DFS(self, grid, i, j):
         if (i < 0 or j < 0
             or i >= self.__n or j >= self.__m
             or grid[i][j] != 1):
             return;
 
-        grid[i][j] = '0'; # important point
-        self.DFSMarking(grid, i + 1, j); # down
-        self.DFSMarking(grid, i - 1, j); # up
-        self.DFSMarking(grid, i, j + 1); # right
-        self.DFSMarking(grid, i, j - 1); # left
+        grid[i][j] = '0'; # marking
+        self.DFS(grid, i + 1, j); # down
+        self.DFS(grid, i - 1, j); # up
+        self.DFS(grid, i, j + 1); # right
+        self.DFS(grid, i, j - 1); # left
 
 # Test
 matrix = [
@@ -43,5 +43,5 @@ matrix = [
 ]
 
 S = Solution()
-num = S.numIslands(matrix)
-print "num of islands:", num
+num = S.numOfIslands(matrix)
+print num
