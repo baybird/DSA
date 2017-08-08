@@ -72,7 +72,7 @@ M = (
   ( 0, 2, 2, 3, 0 ),
 );
 
-Adj = Graph(num, N, M);
+Adj = Graph(N, M);
 Adj.calPaths(0)   # origin 0:A
 Adj.showResult()
 
