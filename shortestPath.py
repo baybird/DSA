@@ -9,8 +9,8 @@ import sys
 
 class Graph():
 
-  def __init__(self, num, N, M):
-    self.num = num;
+  def __init__(self, N, M):
+    self.num = len(N); # length of vertex
 
     # lists
     self.__distance = [sys.maxsize] * self.num # maxsize represents infinity
@@ -21,6 +21,7 @@ class Graph():
     self.__matrix = M
     self.__name   = N
 
+  # Dijkstra's Algorithm
   def calPaths(self, origin):
     self.origin = origin
     self.__distance[origin] = 0;
@@ -59,9 +60,6 @@ class Graph():
 ###################################
 # Test case
 ###################################
-# number of vertex
-num = 5
-
 # Vertex - name of place
 N = ("A", "B", "C", "D", "E");
 
