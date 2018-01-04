@@ -21,7 +21,7 @@ class Graph():
     self.__matrix = M
     self.__name   = N
 
-  # Dijkstra's Algorithm
+  # Algorithm
   def calPaths(self, origin):
     self.origin = origin
     self.__distance[origin] = 0;
